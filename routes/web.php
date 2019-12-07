@@ -14,16 +14,21 @@
 use App\Http\Controllers\data;
 use App\Http\Controllers\MahasiswaController;
 
-Route::get('/', function () {
-    return view('home');
-});
+// Route::get('/', function () {
+//     return view('home');
+// });
 
-Route::get('about', function () {
-    return view('about');
-});
+// Route::get('/about', function () {
+//     return view('about');
+// });
 
-Route::get('service', function () {
+Route::get('/service', function () {
     return view('service');
 });
 
-Route::get('data', 'MahasiswaController@index');
+Route::get('/', 'PagesController@home');
+
+Route::get('/about', 'PagesController@about');
+
+Route::get('/data', 'MahasiswaController@index');
+

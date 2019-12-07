@@ -15,7 +15,7 @@ class StudentsController extends Controller
     public function index()
     {
         //
-        $users = DB::table('mahasiswa')->get();
+        $users = DB::table('students')->get();
         // dump($users);
         // var_dump($users);
         return view('data', ['users' => $users]);

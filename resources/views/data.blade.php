@@ -17,6 +17,7 @@
         <tbody>
             @foreach($users as $user)
             <tr>
+                <!-- <th scope="row">{{ $loop -> iteration }}</th> -->
                 <th scope="row">{{ $user -> id }}</th>
                 <td>{{ $user -> nim }}</td>
                 <td>{{ $user -> nama }}</td>
@@ -83,7 +84,7 @@
                 </button>
             </div>
             <div class="modal-body">
-                <p>Yakin ingin mengahapus user {{ $user -> nama }} ?</p>    
+                <p>Yakin ingin mengahapus user {{ $user -> nama }} ?</p>
             </div>
             <div class="modal-footer">
                 <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>

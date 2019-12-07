@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 
+// For Static Pages
 class PagesController extends Controller
 {
     //
@@ -13,6 +14,11 @@ class PagesController extends Controller
 
     //
     public function about(){
-        return view('about');
+        return view('about', ['nama' => 'Wahid Ari']);
+    }
+    
+    //
+    public function service(){
+        return view('service');
     }
 }

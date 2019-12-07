@@ -22,13 +22,15 @@ use App\Http\Controllers\MahasiswaController;
 //     return view('about');
 // });
 
-Route::get('/service', function () {
-    return view('service');
-});
+// Route::get('/service', function () {
+//     return view('service');
+// });
 
 Route::get('/', 'PagesController@home');
 
 Route::get('/about', 'PagesController@about');
 
-Route::get('/data', 'MahasiswaController@index');
+Route::get('/service', 'PagesController@service');
+
+Route::get('/data', 'StudentsController@index');
 

@@ -336,7 +336,7 @@ class Student extends Model
 ## Migration
 migration directory in `database\migrations` To create a migration, use the `make:migration` Artisan command:
 ```
-php artisan make:migration create_student_table
+php artisan make:migration create_students_table
 ```
 - will make new migration file :
 ```

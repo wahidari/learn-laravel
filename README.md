@@ -11,7 +11,7 @@ public function boot()
         Schema::defaultStringLength(191);
     }
 ```
-2. using Controller error after make new model
+2. using Controller error after make new model in `app\Http\Controllers`
 ```
 // fixing namespace error
 use App\Student;

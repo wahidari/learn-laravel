@@ -26,13 +26,16 @@
                         <a class="nav-link" href="/">Home</a>
                     </li>
                     <li class="nav-item @yield('navaboutactive')">
-                        <a class="nav-link" href="about">About</a>
+                        <a class="nav-link" href="/about">About</a>
                     </li>
                     <li class="nav-item @yield('navservicesactive')">
-                        <a class="nav-link" href="service">Services</a>
+                        <a class="nav-link" href="/service">Services</a>
                     </li>
                     <li class="nav-item @yield('navdataactive')">
-                        <a class="nav-link" href="data">Data</a>
+                        <a class="nav-link" href="/data">Data</a>
+                    </li>
+                    <li class="nav-item @yield('navstudentactive')">
+                        <a class="nav-link" href="/student">Student</a>
                     </li>
                 </ul>
             </div>

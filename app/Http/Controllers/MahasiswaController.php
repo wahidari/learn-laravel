@@ -7,7 +7,7 @@ use Illuminate\Http\Request;
 // fixing namespace error
 use App\Student;
 
-class StudentsController extends Controller
+class MahasiswaController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -16,14 +16,13 @@ class StudentsController extends Controller
      */
     public function index()
     {
-        //Query Builder
-        //$users = DB::table('students')->get();
+        //
+        $users = DB::table('students')->get();
         // dump($users);
-        // var_dump($users);
+        return view('data', ['users' => $users]);
 
-        //Eloquent ORM
-        $students = Student::all(); 
-        return view('student.index', ['students' => $students]);
+        // $users = Student::all(); 
+        // return view('data', ['users' => $users]);
     }
 
     /**
@@ -53,9 +52,9 @@ class StudentsController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show(Student $student)
+    public function show($id)
     {
-        return view('student.detail', compact('student'));
+        //
     }
 
     /**

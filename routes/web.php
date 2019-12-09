@@ -32,5 +32,9 @@ Route::get('/about', 'PagesController@about');
 
 Route::get('/service', 'PagesController@service');
 
-Route::get('/data', 'StudentsController@index');
+Route::get('/data', 'MahasiswaController@index');
+
+Route::get('/student', 'StudentsController@index');
+
+Route::get('/student/detail/{student}', 'StudentsController@show');
 

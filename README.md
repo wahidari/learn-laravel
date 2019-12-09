@@ -145,7 +145,7 @@ Views contain the HTML served by your application and separate your controller /
 ```
 
 - Child Layout with data (Extend Main Layout) :
-```php
+```html
 @extends('/layout/main')
 @section('title', 'Data Page')
 @section('navdataactive', 'active')

@@ -38,3 +38,7 @@ Route::get('/student', 'StudentsController@index');
 
 Route::get('/student/detail/{student}', 'StudentsController@show');
 
+Route::get('/student/create', 'StudentsController@create');
+
+Route::post('/student', 'StudentsController@store');
+

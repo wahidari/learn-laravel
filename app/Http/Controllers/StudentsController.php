@@ -33,7 +33,7 @@ class StudentsController extends Controller
      */
     public function create()
     {
-        //
+        return view('student.create');
     }
 
     /**
@@ -44,7 +44,20 @@ class StudentsController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $request->validate([
+            'nama' => 'required|string',
+            'nim'  => 'required|digits:12|unique:students,nim',
+            'jurusan'  => 'required|string'
+        ]);
+
+        $student = new Student;
+        $student->nama = $request->nama;
+        $student->nim = $request->nim;
+        $student->jurusan = $request->jurusan;
+        $student->save();
+
+        return redirect('/student')->with('status', 'Data Berhasil Ditambahkan');
+        
     }
 
     /**

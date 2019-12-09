@@ -1,5 +1,5 @@
 @extends('/layout/main')
-@section('title', 'Detail Page')
+@section('title', 'Detail Student Page')
 @section('navstudentactive', 'active')
 @section('content')
 <br>

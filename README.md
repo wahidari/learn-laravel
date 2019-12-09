@@ -6,8 +6,8 @@
 // add this in windows for migrate error
 use Illuminate\Support\Facades\Schema;
 
-// inside the boot function add defaultStringLength
-public function boot() {
+    // inside the boot function add defaultStringLength
+    public function boot() {
         // add this in windows for migrate error
         Schema::defaultStringLength(191);
     }
@@ -17,8 +17,8 @@ public function boot() {
 // fixing namespace error
 use App\Student;
 
-// change get data: from query builder to eloquent ORM
-public function index() {
+    // change get data: from query builder to eloquent ORM
+    public function index() {
         //Query Builder
         //$users = DB::table('students')->get();
         // dump($users);
@@ -88,7 +88,7 @@ Route::get('/data', 'StudentsController@index');
 Views contain the HTML served by your application and separate your controller / application logic from your presentation logic. Views are stored in the `resources/views` directory. A simple view might look something like this:
 - Main Layout :
 
-```php
+```html
 <!doctype html>
 <html lang="en">
 <head>
@@ -128,7 +128,7 @@ Views contain the HTML served by your application and separate your controller /
 ```
 - Child Layout (Extend Main Layout) :
 
-```php
+```html
 @extends('/layout/main')
 @section('title', 'About Page')
 @section('navaboutactive', 'active')

@@ -7,8 +7,7 @@
 use Illuminate\Support\Facades\Schema;
 
 // inside the boot function add defaultStringLength
-public function boot()
-    {
+public function boot() {
         // add this in windows for migrate error
         Schema::defaultStringLength(191);
     }
@@ -19,8 +18,7 @@ public function boot()
 use App\Student;
 
 // change get data: from query builder to eloquent ORM
-public function index()
-    {
+public function index() {
         //Query Builder
         //$users = DB::table('students')->get();
         // dump($users);
@@ -69,11 +67,9 @@ For most applications, you will begin by defining routes in your `routes/web.php
 // Route::get('/', function () {
 //     return view('home');
 // });
-
 // Route::get('/about', function () {
 //     return view('about');
 // });
-
 // Route::get('/service', function () {
 //     return view('service');
 // });
@@ -92,7 +88,7 @@ Route::get('/data', 'StudentsController@index');
 Views contain the HTML served by your application and separate your controller / application logic from your presentation logic. Views are stored in the `resources/views` directory. A simple view might look something like this:
 - Main Layout :
 
-```html
+```php
 <!doctype html>
 <html lang="en">
 <head>
@@ -132,7 +128,7 @@ Views contain the HTML served by your application and separate your controller /
 ```
 - Child Layout (Extend Main Layout) :
 
-```html
+```php
 @extends('/layout/main')
 @section('title', 'About Page')
 @section('navaboutactive', 'active')
@@ -149,7 +145,7 @@ Views contain the HTML served by your application and separate your controller /
 ```
 
 - Child Layout with data (Extend Main Layout) :
-```html
+```php
 @extends('/layout/main')
 @section('title', 'Data Page')
 @section('navdataactive', 'active')
@@ -207,13 +203,13 @@ use Illuminate\Http\Request;
 // For Static Pages
 class PagesController extends Controller
 {
-    public function home(){
+    public function home() {
         return view('home');
     }
-    public function about(){
+    public function about() {
         return view('about', ['nama' => 'Wahid Ari']);
     }
-    public function service(){
+    public function service() {
         return view('service');
     }
 }
@@ -232,8 +228,7 @@ class StudentsController extends Controller
     /**
      * Display a listing of the resource.
      */
-    public function index()
-    {
+    public function index() {
         //Query Builder
         //$users = DB::table('students')->get();
         // dump($users);
@@ -246,46 +241,40 @@ class StudentsController extends Controller
     /**
      * Show the form for creating a new resource.
      */
-    public function create()
-    {
+    public function create() {
         //
     }
     /**
      * Store a newly created resource in storage.
      */
-    public function store(Request $request)
-    {
+    public function store(Request $request) {
         //
     }
     /**
      * @param  int  $id
      */
-    public function show($id)
-    {
+    public function show($id) {
         //
     }
     /**
      * Show the form for editing the specified resource.
      * @param  int  $id
      */
-    public function edit($id)
-    {
+    public function edit($id) {
         //
     }
     /**
      * Update the specified resource in storage.
      * @param  int  $id
      */
-    public function update(Request $request, $id)
-    {
+    public function update(Request $request, $id) {
         //
     }
     /**
      * Remove the specified resource from storage.
      * @param  int  $id
      */
-    public function destroy($id)
-    {
+    public function destroy($id) {
         //
     }
 }
@@ -302,8 +291,7 @@ php artisan make:model Student
 <?php
 namespace App;
 use Illuminate\Database\Eloquent\Model;
-class Student extends Model
-{
+class Student extends Model {
     //
 }
 ```
@@ -323,11 +311,9 @@ class CreateStudentsTable extends Migration
 {
     /**
      * Run the migrations.
-     *
      * @return void
      */
-    public function up()
-    {
+    public function up() {
         Schema::create('students', function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->string('nama');
@@ -338,11 +324,9 @@ class CreateStudentsTable extends Migration
     }
     /**
      * Reverse the migrations.
-     *
      * @return void
      */
-    public function down()
-    {
+    public function down() {
         Schema::dropIfExists('students');
     }
 }
@@ -351,7 +335,6 @@ class CreateStudentsTable extends Migration
 
 ## Contributing
 Pull requests are welcome. For major changes, please open an issue first to discuss what you would like to change.
-
 Please make sure to update tests as appropriate.
 
 ## License

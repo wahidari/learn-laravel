@@ -2,19 +2,23 @@
 
 ## Some Tips :
 1. Fix Migrate Error in Windows : change file in `app\Providers`
-```
+```php
 // add this in windows for migrate error
 use Illuminate\Support\Facades\Schema;
+
+// inside the boot function add defaultStringLength
 public function boot()
     {
         // add this in windows for migrate error
         Schema::defaultStringLength(191);
     }
 ```
-2. using Controller error after make new model in `app\Http\Controllers`
-```
+2. Controller `app\Http\Controllers` error when using new model
+```php
 // fixing namespace error
 use App\Student;
+
+// change get data: from query builder to eloquent ORM
 public function index()
     {
         //Query Builder
@@ -27,14 +31,6 @@ public function index()
         return view('data', ['users' => $users]);
     }
 ```
-3. 
-```
-
-```
-4. 
-```
-
-```
 
 ## Composer 
 Laravel utilizes [Composer](https://getcomposer.org/) to manage its dependencies. So, before using Laravel, make sure you have Composer installed on your machine.
@@ -42,27 +38,21 @@ Laravel utilizes [Composer](https://getcomposer.org/) to manage its dependencies
 ## Installation Via Composer Create-Project
 Alternatively, you may also install Laravel by issuing the Composer create-project command in your terminal:
 
-```
+```php
 composer create-project --prefer-dist laravel/laravel blog
 ```
 
 ## Local Development Server
 If you have PHP installed locally and you would like to use PHP's built-in development server to serve your application, you may use the serve Artisan command. This command will start a development server at http://localhost:8000:
 
-```
-composer create-project --prefer-dist laravel/laravel blog
-```
-
-## Usage
-
-```
+```php
 php artisan serve
 ```
 
 ## Database
-Environment Configuration :
+Environment Configuration in `.env` :
 
-```
+```sql
 DB_CONNECTION=mysql
 DB_HOST=127.0.0.1
 DB_PORT=3306
@@ -74,7 +64,7 @@ DB_PASSWORD=
 ## Routing
 For most applications, you will begin by defining routes in your `routes/web.php` file. The routes defined in `routes/web.php` may be accessed by entering the defined route's URL in your browser. For example, you may access the following route by navigating to `http://your-app.test/user` in your browser:
 
-```
+```php
 // *** Default ***
 // Route::get('/', function () {
 //     return view('home');
@@ -89,12 +79,12 @@ For most applications, you will begin by defining routes in your `routes/web.php
 // });
 
 // *** Using Controller ***
+// For static Pages
 Route::get('/', 'PagesController@home');
-
 Route::get('/about', 'PagesController@about');
-
 Route::get('/service', 'PagesController@service');
 
+// For Dynamic Pages
 Route::get('/data', 'StudentsController@index');
 ```
 
@@ -102,7 +92,7 @@ Route::get('/data', 'StudentsController@index');
 Views contain the HTML served by your application and separate your controller / application logic from your presentation logic. Views are stored in the `resources/views` directory. A simple view might look something like this:
 - Main Layout :
 
-```
+```html
 <!doctype html>
 <html lang="en">
 <head>
@@ -110,10 +100,8 @@ Views contain the HTML served by your application and separate your controller /
     <meta charset="utf-8">
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="/css/app.css">
-
     <title>@yield('title')</title>
 </head>
-
 <body>
     <div class="collapse navbar-collapse" id="navbarResponsive">
         <ul class="navbar-nav ml-auto">
@@ -131,11 +119,9 @@ Views contain the HTML served by your application and separate your controller /
             </li>
         </ul>
     </div>
-
     <!-- Page Content -->
     @yield('content')
     <!-- End Page Content -->
-
     <!-- Optional JavaScript -->
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->
     <script src="/js/jquery.min.js"></script>
@@ -146,7 +132,7 @@ Views contain the HTML served by your application and separate your controller /
 ```
 - Child Layout (Extend Main Layout) :
 
-```
+```html
 @extends('/layout/main')
 @section('title', 'About Page')
 @section('navaboutactive', 'active')
@@ -163,7 +149,7 @@ Views contain the HTML served by your application and separate your controller /
 ```
 
 - Child Layout with data (Extend Main Layout) :
-```
+```html
 @extends('/layout/main')
 @section('title', 'Data Page')
 @section('navdataactive', 'active')
@@ -239,10 +225,8 @@ class PagesController extends Controller
 namespace App\Http\Controllers;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Http\Request;
-
 // fixing namespace error
 use App\Student;
-
 class StudentsController extends Controller
 {
     /**
@@ -259,7 +243,6 @@ class StudentsController extends Controller
         $users = Student::all(); 
         return view('data', ['users' => $users]);
     }
-
     /**
      * Show the form for creating a new resource.
      */
@@ -267,7 +250,6 @@ class StudentsController extends Controller
     {
         //
     }
-
     /**
      * Store a newly created resource in storage.
      */
@@ -275,7 +257,6 @@ class StudentsController extends Controller
     {
         //
     }
-
     /**
      * @param  int  $id
      */
@@ -283,7 +264,6 @@ class StudentsController extends Controller
     {
         //
     }
-
     /**
      * Show the form for editing the specified resource.
      * @param  int  $id
@@ -292,7 +272,6 @@ class StudentsController extends Controller
     {
         //
     }
-
     /**
      * Update the specified resource in storage.
      * @param  int  $id
@@ -301,7 +280,6 @@ class StudentsController extends Controller
     {
         //
     }
-
     /**
      * Remove the specified resource from storage.
      * @param  int  $id
@@ -316,17 +294,14 @@ class StudentsController extends Controller
 
 ## Model
 To get started, let's create an Eloquent model. Models typically live in the `app directory`, The easiest way to create a model instance is using the `make:model` Artisan command:
-```
+```php
 php artisan make:model Student
 ```
 - will create new model :
 ```php
 <?php
-
 namespace App;
-
 use Illuminate\Database\Eloquent\Model;
-
 class Student extends Model
 {
     //
@@ -335,17 +310,15 @@ class Student extends Model
 
 ## Migration
 migration directory in `database\migrations` To create a migration, use the `make:migration` Artisan command:
-```
+```php
 php artisan make:migration create_students_table
 ```
 - will make new migration file :
-```
+```php
 <?php
-
 use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
-
 class CreateStudentsTable extends Migration
 {
     /**
@@ -363,7 +336,6 @@ class CreateStudentsTable extends Migration
             $table->timestamps();
         });
     }
-
     /**
      * Reverse the migrations.
      *

@@ -29,6 +29,8 @@ use App\Student;
         return view('data', ['users' => $users]);
     }
 ```
+3. [Showing Data](https://github.com/wahidari/learn-laravel/commit/1eea09a340ad551c88103dd0c26015d063633e8b) From Database as List and Detail
+4. [Add Data with Form Validation](https://github.com/wahidari/learn-laravel/commit/bb790ef26e01452425470b94efeaed1175975e7b) to Database
 
 ## Composer 
 Laravel utilizes [Composer](https://getcomposer.org/) to manage its dependencies. So, before using Laravel, make sure you have Composer installed on your machine.

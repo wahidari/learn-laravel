@@ -40,5 +40,5 @@ Route::get('/student/detail/{student}', 'StudentsController@show');
 
 Route::get('/student/create', 'StudentsController@create');
 
-Route::post('/student', 'StudentsController@store');
+Route::post('/student/store', 'StudentsController@store');
 

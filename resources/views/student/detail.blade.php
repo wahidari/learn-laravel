@@ -13,8 +13,8 @@
                     <h6 class="card-subtitle mb-2">{{ $student -> nim }}</h6>
                     <p class="card-text">{{ $student -> jurusan }}</p>
 
-                    <button type="submit" class="btn btn-primary">Edit</button>
-                    <button type="submit" class="btn btn-danger">Delete</button>
+                    <button type="submit" class="btn btn-primary btn-sm">Edit</button>
+                    <button type="submit" class="btn btn-danger btn-sm">Delete</button>
                 </div>
             </div>
         </div>

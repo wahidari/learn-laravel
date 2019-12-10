@@ -7,7 +7,7 @@
     <div class="row">
         <div class="col-8">
             <h3>Create New Student :</h3>
-            <form method="post" action="/student">
+            <form method="post" action="/student/store">
                 @csrf
                 <div class="form-group">
                     <label for="formNama">Nama</label>

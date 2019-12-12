@@ -34,11 +34,9 @@ Route::get('/service', 'PagesController@service');
 
 Route::get('/data', 'MahasiswaController@index');
 
+// Students
 Route::get('/student', 'StudentsController@index');
-
 Route::get('/student/detail/{student}', 'StudentsController@show');
-
 Route::get('/student/create', 'StudentsController@create');
-
 Route::post('/student/store', 'StudentsController@store');
-
+Route::delete('/student/detail/{student}', 'StudentsController@destroy');

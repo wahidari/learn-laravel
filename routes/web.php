@@ -13,6 +13,7 @@
 
 use App\Http\Controllers\data;
 use App\Http\Controllers\MahasiswaController;
+use App\Http\Controllers\StudentsController;
 
 // Route::get('/', function () {
 //     return view('home');
@@ -39,4 +40,6 @@ Route::get('/student', 'StudentsController@index');
 Route::get('/student/detail/{student}', 'StudentsController@show');
 Route::get('/student/create', 'StudentsController@create');
 Route::post('/student/store', 'StudentsController@store');
-Route::delete('/student/detail/{student}', 'StudentsController@destroy');
+Route::delete('/student/delete/{student}', 'StudentsController@destroy');
+Route::get('/student/edit/{student}', 'StudentsController@edit');
+Route::patch('/student/update/{student}', 'StudentsController@update');

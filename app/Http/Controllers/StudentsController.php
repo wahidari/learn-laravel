@@ -45,14 +45,14 @@ class StudentsController extends Controller
     public function store(Request $request)
     {
         $request->validate([
-            'nama' => 'required|string',
-            'nim'  => 'required|digits:12|unique:students,nim',
-            'jurusan'  => 'required|string'
+            'nama'    => 'required|string',
+            'nim'     => 'required|digits:12|unique:students,nim',
+            'jurusan' => 'required|string'
         ]);
 
         $student = new Student;
-        $student->nama = $request->nama;
-        $student->nim = $request->nim;
+        $student->nama    = $request->nama;
+        $student->nim     = $request->nim;
         $student->jurusan = $request->jurusan;
         $student->save();
 
@@ -77,9 +77,9 @@ class StudentsController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public function edit(Student $student)
     {
-        //
+        return view('student.edit', compact('student'));
     }
 
     /**
@@ -89,9 +89,21 @@ class StudentsController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(Request $request, Student $student)
     {
-        //
+        $request->validate([
+            'nama'    => 'required|string',
+            'nim'     => 'required|size:12',
+            'jurusan' => 'required|string'
+        ]);
+
+        Student::where('id', $student -> id)
+        ->update([
+            'nama'    => $request->nama,
+            'nim'     => $request->nim,
+            'jurusan' => $request->jurusan
+        ]);
+        return redirect('/student')->with('status', 'Data Berhasil Diubah');
     }
 
     /**

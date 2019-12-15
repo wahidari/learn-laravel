@@ -13,7 +13,7 @@
                     <h6 class="card-subtitle mb-2">{{ $student -> nim }}</h6>
                     <p class="card-text">{{ $student -> jurusan }}</p>
 
-                    <button type="submit" class="btn btn-primary btn-sm">Edit</button>
+                    <a href="/student/edit/{{ $student -> id }}" class="btn btn-primary btn-sm">Edit</a>
                     <button type="button" class="btn btn-sm btn-danger" data-toggle="modal" data-target="#DeleteModal{{ $student -> id }}">
                         Delete
                     </button>
@@ -37,7 +37,7 @@
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-secondary btn-sm" data-dismiss="modal">Close</button>
-                    <form action="{{ $student -> id }}" method="post" class="d-inline">
+                    <form action="/student/delete/{{ $student -> id }}" method="post" class="d-inline">
                         @method('delete')
                         @csrf
                         <button type="submit" class="btn btn-danger btn-sm">Delete</button>
